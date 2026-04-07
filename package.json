@@ -1,6 +1,7 @@
 {
   "name": "ai-chatbot-app",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -28,6 +29,11 @@
     "@angular/forms": "^20.2.0",
     "@angular/platform-browser": "^20.2.0",
     "@angular/router": "^20.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "openai": "^5.19.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

@@ -1,0 +1,38 @@
+<!-- Floating Button -->
+<div class="chat-toggle-btn" (click)="toggleChat()">
+  <span *ngIf="!isOpen">💬</span>
+  <span *ngIf="isOpen">✖</span>
+</div>
+
+<!-- Chat Window -->
+<div class="chat-window" *ngIf="isOpen">
+  <!-- Header -->
+  <div class="chat-header">
+    <h3>AI Project Assistant</h3>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-messages">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+      {{ msg.content }}
+    </div>
+    <div *ngIf="isTyping" class="typing">🤖 Bot is typing...</div>
+  </div>
+
+  <!-- Smart Suggestions -->
+  <div class="chat-suggestions">
+    <button *ngFor="let suggestion of quickSuggestions" (click)="sendMessage(suggestion)">
+      {{ suggestion }}
+    </button>
+  </div>
+
+  <!-- Input + Mic -->
+  <div class="chat-input">
+    <textarea [(ngModel)]="userInput" placeholder="Type a message..."></textarea>
+    <button (click)="sendMessage()">➤</button>
+
+    <!-- Mic buttons -->
+    <button *ngIf="!isRecording" (click)="startRecording()">🎤</button>
+    <button *ngIf="isRecording" (click)="stopRecording()">⏹</button>
+  </div>
+</div>
